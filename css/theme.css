@@ -1,0 +1,29 @@
+h1, h2, h3, h4, h5, h6, span {
+
+text-shadow: 1px 1px 3px rgba(51, 27, 111, 0.601);
+
+}
+
+.carte-a-propos, .carte-projet {
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+}
+
+.carte-a-propos {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 12px;
+}
+
+.carte-a-propos:hover {
+  transform: scale(1.03) rotateZ(0.5deg);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.container-competences{
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 12px;
+}
+
+.carte-projet:hover {
+  transform: scale(1.06) rotateZ(-0.9deg);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
