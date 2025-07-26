@@ -1,0 +1,106 @@
+h1, h2, h3, h4, h5, h6, span {
+  text-shadow: 1px 1px 3px rgba(51, 27, 111, 0.601);
+}
+
+.carte-a-propos, .carte-projet {
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+}
+
+.carte-a-propos {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 12px;
+}
+
+.carte-a-propos:hover {
+  transform: scale(1.03) rotateZ(0.5deg);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.container-competences {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 12px;
+}
+
+.carte-projet:hover {
+  transform: scale(1.06) rotateZ(-0.9deg);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.page-projets h1 {
+  display: flex;
+  justify-content: center;
+  margin-top: 5vh;
+}
+
+.left .project-image a {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.project.right .btn {
+  margin-left: auto;
+}
+
+.right img:hover {
+  transform: scale(1.06) rotateZ(-0.9deg);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.left img:hover {
+  transform: scale(1.06) rotateZ(0.9deg);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.project-listing {
+  display: flex;
+  flex-direction: column;
+  gap: 7rem;
+  padding: 2rem 2rem;
+  width: 85%;
+  margin: 5vh auto 10vh auto;
+}
+.project-listing .project {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+  flex-wrap: wrap;
+}
+.project-listing .project.left {
+  flex-direction: row;
+}
+.project-listing .project.right {
+  flex-direction: row-reverse;
+}
+.project-listing .project .project-image {
+  flex: 1;
+}
+.project-listing .project .project-image img {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 80%;
+  border-radius: 20px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+.project-listing .project .project-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.project-listing .project .project-content h2 {
+  font-size: 2rem;
+  margin-bottom: 0rem;
+}
+.project-listing .project .project-content .btn {
+  transition: transform 0.7s ease !important;
+  display: inline-block;
+  background-image: linear-gradient(180deg, rgba(63, 51, 116, 0.7294117647) 0%, #5c50d6 100%);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 10px;
+  transition: background 0.3s ease;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.project-listing .project .project-content .btn:hover {
+  background-image: linear-gradient(180deg, #3f3374 0%, #5c50d6 100%);
+  transform: scale(1.04);
+}

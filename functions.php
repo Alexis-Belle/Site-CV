@@ -1,12 +1,28 @@
-<?php 
+<?php
 
-// Charger les styles du thème parent et du thème enfant
-function chicdressing_enqueue_styles() {
-    // Style du thème parent
-    wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.css' );
+add_action('wp_enqueue_scripts', 'alexis_enqueue_assets');
 
-    // Style du thème enfant (optionnel si tu veux ajouter un fichier spécifique)
-    wp_enqueue_style( 'Alexis-theme', get_stylesheet_directory_uri() . '/css/theme.css', array('parent-style') );
+function alexis_enqueue_assets() {
+    // Style parent
+    wp_enqueue_style(
+        'parent-style',
+        get_template_directory_uri() . '/style.css'
+    );
+
+    // CSS principal
+    wp_enqueue_style(
+        'alexis-main-style',
+        get_stylesheet_directory_uri() . '/assets/css/main.css',
+        array('parent-style'),
+        wp_get_theme()->get('Version')
+    );
+
+    // JS d'animation
+    wp_enqueue_script(
+        'alexis-animation-init',
+        get_stylesheet_directory_uri() . '/assets/js/animation-init.js',
+        array(),
+        wp_get_theme()->get('Version'),
+        true
+    );
 }
-add_action( 'wp_enqueue_scripts', 'chicdressing_enqueue_styles' );
-
