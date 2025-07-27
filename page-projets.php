@@ -18,7 +18,10 @@ get_header(); ?>
         while ($query->have_posts()) : $query->the_post();
         $i++;
     ?>
-        <article class="project <?php echo ($i % 2 == 0) ? 'right' : 'left'; ?>">
+    <?php
+      $toneClass = 'bg-tone-' . (($i - 1) % 5 + 1); // boucle entre 1 et 5
+    ?>
+    <article class="project <?php echo ($i % 2 == 0) ? 'right' : 'left'; ?> <?php echo $toneClass; ?>">
         <div class="project-image">
             <a href="<?php the_permalink(); ?>">
               <?php the_post_thumbnail('large'); ?>

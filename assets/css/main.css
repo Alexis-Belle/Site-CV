@@ -1,3 +1,4 @@
+@charset "UTF-8";
 h1, h2, h3, h4, h5, h6, span {
   text-shadow: 1px 1px 3px rgba(51, 27, 111, 0.601);
 }
@@ -54,9 +55,9 @@ h1, h2, h3, h4, h5, h6, span {
 .project-listing {
   display: flex;
   flex-direction: column;
-  gap: 7rem;
+  gap: 6rem;
   padding: 2rem 2rem;
-  width: 85%;
+  width: 100%;
   margin: 5vh auto 10vh auto;
 }
 .project-listing .project {
@@ -103,4 +104,148 @@ h1, h2, h3, h4, h5, h6, span {
 .project-listing .project .project-content .btn:hover {
   background-image: linear-gradient(180deg, #3f3374 0%, #5c50d6 100%);
   transform: scale(1.04);
+}
+
+.project {
+  border-radius: 16px;
+  padding: 2rem;
+  transition: background 0.5s ease;
+  background: rgba(255, 255, 255, 0.05); /* fallback */
+  background-blend-mode: lighten;
+}
+
+/* Couleur 1 — Violet clair */
+.bg-tone-1 {
+  background: radial-gradient(circle at 50% 30%, rgba(142, 93, 255, 0.2), transparent 80%);
+}
+
+/* Couleur 2 — Bleu glacier */
+.bg-tone-2 {
+  background: radial-gradient(circle at 50% 30%, rgba(0, 193, 255, 0.2), transparent 80%);
+}
+
+/* Couleur 3 — Rose corail */
+.bg-tone-3 {
+  background: radial-gradient(circle at 50% 30%, rgba(255, 110, 131, 0.2), transparent 80%);
+}
+
+/* Couleur 4 — Vert doux */
+.bg-tone-4 {
+  background: radial-gradient(circle at 50% 30%, rgba(82, 255, 168, 0.2), transparent 80%);
+}
+
+/* Couleur 5 — Jaune/orangé doux */
+.bg-tone-5 {
+  background: radial-gradient(circle at 50% 30%, rgba(255, 217, 102, 0.2), transparent 80%);
+}
+
+.ast-container {
+  max-width: 80% !important;
+}
+
+.single-project .container {
+  margin: 0 auto;
+  padding: 2rem 0 5rem 0;
+}
+
+.single-project h1 {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.single-project .content {
+  width: 70%;
+  margin: auto;
+}
+
+.intro-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  padding: 1rem;
+}
+
+.intro-container .texte-intro {
+  flex: 1 1 55%;
+  font-size: 1.1rem;
+  font-style: italic;
+}
+
+.intro-container .image-intro {
+  flex: 1 1 25%;
+  text-align: right;
+}
+
+.intro-container .image-intro img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.15);
+}
+
+@media (max-width: 768px) {
+  .intro-container {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+  .intro-container .texte-intro,
+  .intro-container .image-intro {
+    flex: 1 1 100%;
+  }
+  .intro-container .image-intro {
+    text-align: center;
+  }
+}
+.texte-intro {
+  position: relative;
+  padding: 2rem;
+  background-color: rgba(255, 255, 255, 0.03); /* Optionnel pour démarquer */
+  border-radius: 8px;
+  font-style: italic;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  overflow: hidden;
+}
+
+.texte-intro::before,
+.texte-intro::after {
+  content: "";
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  border: 3px solid #8e5dff; /* Violet ou autre */
+}
+
+.texte-intro::before {
+  top: 0;
+  left: 0;
+  border-right: none;
+  border-bottom: none;
+}
+
+.texte-intro::after {
+  bottom: 0;
+  right: 0;
+  border-left: none;
+  border-top: none;
+}
+
+.floating {
+  animation: floaty 3s ease-in-out infinite;
+  display: inline-block;
+  will-change: transform;
+}
+
+@keyframes floaty {
+  0% {
+    transform: translate(0);
+  }
+  50% {
+    transform: translate(-6px);
+  }
+  100% {
+    transform: translate(0);
+  }
 }
