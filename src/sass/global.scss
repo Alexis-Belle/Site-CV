@@ -1,3 +1,84 @@
+body {
+  background: linear-gradient(135deg, #E8E6FE, #ada7f591, #E8E6FE) !important;
+}
+
+.site-content,
+.ast-container,
+.single-project,
+.single-project article {
+  background: transparent !important;
+}
+
+.blob-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.blob {
+  position: absolute;
+  border-radius: 40% 60% 50% 70% / 60% 50% 70% 40%;
+  opacity: 0.1;
+  animation: morph 8s ease-in-out infinite alternate, wander 60s ease-in-out infinite;
+}
+
+/* Blobs avec gradient */
+.blob1 {
+  top: 5%;
+  left: 10%;
+  width: 250px;
+  height: 250px;
+  animation-delay: 0s, 0s;
+  background: #5016d6;
+
+}
+
+.blob2 {
+  top: 50%;
+  left: 65%;
+  width: 200px;
+  height: 200px;
+  animation-delay: 2s, 12s;
+  background: #2b03cd;
+}
+
+.blob3 {
+  top: 75%;
+  left: 20%;
+  width: 300px;
+  height: 300px;
+  animation-delay: 4s, 24s;
+  background: #7616d6;
+
+}
+
+/* Déformation */
+@keyframes morph {
+  0% {
+    border-radius: 40% 60% 50% 70% / 60% 50% 70% 40%;
+  }
+  100% {
+    border-radius: 60% 40% 60% 50% / 50% 60% 40% 60%;
+  }
+}
+
+/* Mouvement libre */
+@keyframes wander {
+  0%   { transform: translate(0, 0); }
+  25%  { transform: translate(15vw, -10vh); }
+  50%  { transform: translate(-10vw, 10vh); }
+  75%  { transform: translate(5vw, -15vh); }
+  100% { transform: translate(0, 0); }
+}
+
+
+
+
 h1, h2, h3, h4, h5, h6, span {
 
 text-shadow: 1px 1px 3px rgba(51, 27, 111, 0.601);
@@ -31,17 +112,10 @@ text-shadow: 1px 1px 3px rgba(51, 27, 111, 0.601);
 
 // PAGE PROJETS
 
-
-.page-projets {
-
-}
-
 .page-projets h1 {
   display:flex;
   justify-content: center;
   margin-top: 5vh;
-  // background-color: transparent;
-  // background-image:linear-gradient(#8A43F7A3 33%, #4444A8AD 68%);
 }
 
 .left .project-image a {
@@ -54,12 +128,12 @@ margin-left: auto;
 }
 
 .right img:hover {
-  transform: scale(1.06) rotateZ(-0.9deg);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+  transform: scale(1.01) rotateZ(-0.4deg);
 }
 .left img:hover {
-  transform: scale(1.06) rotateZ(0.9deg);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+  transform: scale(1.01) rotateZ(0.4deg);
 }
 
 .project-listing {
@@ -67,8 +141,8 @@ margin-left: auto;
   flex-direction: column;
   gap: 6rem;
   padding: 2rem 2rem;
-  width:100%;
-  margin: 5vh auto 10vh auto;
+  width:80%;
+  margin: 5vh auto 8vh auto;
 
   .project {
     display: flex;
@@ -87,7 +161,7 @@ margin-left: auto;
     .project-image {
       flex: 1;
       img {
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        transition: all 0.7s ease;
         width: 80%;
         border-radius: 20px;
         box-shadow: 0 10px 20px rgba(0,0,0,0.5);
@@ -135,33 +209,44 @@ margin-left: auto;
 .bg-tone-1 {
   background: radial-gradient(circle at 50% 30%, #8e5dff33, transparent 80%);
 }
+.bg-tone-1:hover {
+  background: radial-gradient(circle at 50% 30%, #8e5dff6b, transparent 80%);
+}
 
 /* Couleur 2 — Bleu glacier */
 .bg-tone-2 {
   background: radial-gradient(circle at 50% 30%, #00c1ff33, transparent 80%);
+}
+.bg-tone-2:hover {
+  background: radial-gradient(circle at 50% 30%, #00bfff6e, transparent 80%);
 }
 
 /* Couleur 3 — Rose corail */
 .bg-tone-3 {
   background: radial-gradient(circle at 50% 30%, #ff6e8333, transparent 80%);
 }
+.bg-tone-3:hover {
+  background: radial-gradient(circle at 50% 30%, #ff6e8460, transparent 80%);
+}
 
 /* Couleur 4 — Vert doux */
 .bg-tone-4 {
   background: radial-gradient(circle at 50% 30%, #52ffa833, transparent 80%);
+}
+.bg-tone-4:hover {
+  background: radial-gradient(circle at 50% 30%, #52ffa962, transparent 80%);
 }
 
 /* Couleur 5 — Jaune/orangé doux */
 .bg-tone-5 {
   background: radial-gradient(circle at 50% 30%, #ffd96633, transparent 80%);
 }
+.bg-tone-5:hover {
+  background: radial-gradient(circle at 50% 30%, #ffd96669, transparent 80%);
+}
 
 
 // ARTICLES PROJETS
-
-.ast-container {
-  max-width:80% !important;
-}
 
 .single-project .container {
   margin: 0 auto;
@@ -264,7 +349,93 @@ margin-left: auto;
 }
 
 @keyframes floaty {
-  0% { transform: translate(0); }
-  50% { transform: translate(-6px); }
-  100% { transform: translate(0); }
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+  100% { transform: translateY(0); }
+}
+
+
+.btn-container {
+  display:flex;
+  justify-content: center;
+  margin: 0 0 4rem 0
+}
+
+.contact-btn {
+  transition: transform 0.7s ease !important;
+  display: inline-block;
+  background-image: linear-gradient(180deg, #2d2081ba 0%, #8c57f6 100%);
+  color: white;
+  padding: 1rem 3.5rem;
+  border-radius: 10px;
+  transition: background 0.3s ease;
+  width:fit-content;
+
+  &:hover {
+    background-image: linear-gradient(180deg, #3f3374 0%, #5c50d6 100%);
+    transform: scale(1.04);
+    color:white;
+    animation: pulse 2s ease-in-out infinite;
+
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.035);
+  }
+}
+
+
+
+
+
+
+// PAGE DE CONTACT
+
+
+/* Champs input et textarea */
+.form-control {
+  width: 100% !important;
+  padding: 0.9rem 1.2rem !important;
+  margin: 0.4rem 0;
+  font-size: 1rem !important;
+  border-radius: 8px !important;
+  border: none !important;
+  box-sizing: border-box;
+  transition: background 0.3s ease;
+}
+
+.form-control:focus {
+  background: rgba(255, 255, 255, 0.662) !important;
+  outline: none !important;
+}
+
+/* Zone de texte (textarea) uniquement */
+.form-textarea {
+  height: 150px !important;
+  resize: none !important;
+  overflow-y: auto !important;
+}
+
+/* Bouton de soumission */
+.contact-submit {
+  padding: 1rem 3rem !important;
+  border: none !important;
+  background-image: linear-gradient(180deg, #2d2081ba 0%, #8c57f6 100%);  color: white !important;
+  font-weight: bold !important;
+  border-radius: 8px !important;
+  cursor: pointer !important;
+  transition: transform 0.3s ease, background 0.3s ease;
+  width: fit-content !important;
+  margin: 0 auto !important;
+  display: block !important;
+}
+
+.contact-submit:hover {
+  transform: scale(1.03) !important;
+  background: linear-gradient(180deg, #3f3374, #5c50d6) !important;
 }

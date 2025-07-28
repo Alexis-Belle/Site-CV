@@ -24,7 +24,11 @@ get_header(); ?>
     <article class="project <?php echo ($i % 2 == 0) ? 'right' : 'left'; ?> <?php echo $toneClass; ?>">
         <div class="project-image">
             <a href="<?php the_permalink(); ?>">
-              <?php the_post_thumbnail('large'); ?>
+              <div class="project-image floating">
+                <a href="<?php the_permalink(); ?>">
+                  <?php the_post_thumbnail('large'); ?>
+                </a>
+              </div>
             </a>
         </div>
         <div class="project-content">
@@ -35,8 +39,9 @@ get_header(); ?>
         </article>
     <?php endwhile; wp_reset_postdata(); ?>
     </section>
-
-
+    <div class="btn-container">
+      <a href="/contact" class="contact-btn">Me contacter</a>
+    </div>
 </main>
 
 <?php get_footer(); ?>
