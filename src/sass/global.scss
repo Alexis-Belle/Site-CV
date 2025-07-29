@@ -80,9 +80,7 @@ body {
 
 
 h1, h2, h3, h4, h5, h6, span {
-
 text-shadow: 1px 1px 3px rgba(51, 27, 111, 0.601);
-
 }
 
 .carte-a-propos, .carte-projet {
@@ -112,6 +110,16 @@ text-shadow: 1px 1px 3px rgba(51, 27, 111, 0.601);
 
 // PAGE PROJETS
 
+.page-projets {
+  opacity: 0 !important;
+  transition: opacity 1.2s ease;
+}
+
+.page-projets.visible {
+  opacity: 1!important;
+}
+
+
 .page-projets h1 {
   display:flex;
   justify-content: center;
@@ -136,6 +144,11 @@ box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
   transform: scale(1.01) rotateZ(0.4deg);
 }
 
+    .project.visible {
+  opacity: 1 !important;
+  transform: translateX(0) !important;
+  }
+
 .project-listing {
   display: flex;
   flex-direction: column;
@@ -149,13 +162,16 @@ box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
     align-items: center;
     gap: 4rem;
     flex-wrap: wrap;
-
+    opacity: 0;
+    transition: opacity 0.8s ease, transform 1.2s ease;
     &.left {
       flex-direction: row;
+      transform: translateX(-100px);
     }
 
     &.right {
       flex-direction: row-reverse;
+      transform: translateX(100px);
     }
 
     .project-image {
@@ -172,7 +188,7 @@ box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
       display:flex;
       flex-direction: column;
       flex: 1;
-      h2 {
+      .title-projects {
         font-size: 2rem;
         margin-bottom: 0rem;
       }
@@ -243,6 +259,34 @@ box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
 }
 .bg-tone-5:hover {
   background: radial-gradient(circle at 50% 30%, #ffd96669, transparent 80%);
+}
+
+
+@media (max-width: 1024px) {
+.project-listing {
+  width:100%;
+  gap: 4rem;
+}
+.project-content {
+      p {
+        font-size: 1.2rem !important;
+      }
+      .btn {
+        padding: 1.5rem 3rem !important;
+        font-size: 1.2rem !important;
+      }
+      .contact-btn {
+        padding: 2rem 4rem !important;
+        font-size: 1.5rem !important;
+      }
+    }
+
+}
+
+@media (max-width: 768px) {
+  textarea.wpcf7-form-control.form-control {
+    height: 25vh !important;
+  }
 }
 
 
@@ -414,18 +458,20 @@ box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
   outline: none !important;
 }
 
-/* Zone de texte (textarea) uniquement */
-.form-textarea {
-  height: 150px !important;
+textarea.wpcf7-form-control.form-control {
+  height: 35vh !important;
   resize: none !important;
   overflow-y: auto !important;
 }
 
+
+
 /* Bouton de soumission */
 .contact-submit {
-  padding: 1rem 3rem !important;
+  padding: 1.4rem 5rem !important;
   border: none !important;
-  background-image: linear-gradient(180deg, #2d2081ba 0%, #8c57f6 100%);  color: white !important;
+  background-image: linear-gradient(180deg, #2d2081ba 0%, #8c57f6 100%);  
+  color: white !important;
   font-weight: bold !important;
   border-radius: 8px !important;
   cursor: pointer !important;
@@ -438,4 +484,30 @@ box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
 .contact-submit:hover {
   transform: scale(1.03) !important;
   background: linear-gradient(180deg, #3f3374, #5c50d6) !important;
+}
+
+
+
+
+@media (max-width: 768px) {
+  textarea.wpcf7-form-control.form-control {
+    height: 25vh !important;
+  }
+}
+
+@media (max-width: 1024px) {
+  .form-control {
+    font-size: 20px !important;
+  }
+  .h2-contact h2 {
+    font-size: 36px !important;
+  }
+
+  .p-contact p {
+    font-size:20px !important;
+  }
+  .contact-submit {
+  padding: 1.8rem 6.5rem !important;
+  font-size: 20px !important;
+}
 }

@@ -32,7 +32,7 @@ get_header(); ?>
             </a>
         </div>
         <div class="project-content">
-           <a href="<?php the_permalink(); ?>"> <h2><?php the_title(); ?></h2> </a>
+           <a href="<?php the_permalink(); ?>"> <h2 class="title-projects"><?php the_title(); ?></h2> </a>
             <p><?php the_excerpt(); ?></p>
             <a href="<?php the_permalink(); ?>" class="btn">Voir le projet</a>
         </div>
