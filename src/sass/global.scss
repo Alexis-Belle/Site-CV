@@ -77,7 +77,15 @@ body {
 }
 
 
+.ast-primary-header-bar {
+  background-image: linear-gradient(180deg, #8269f55f 0%, #5b50d691 100%) !important;
+}
 
+.menu-link {
+display:flex !important;
+justify-content:center !important;
+align-items:center !important;
+}
 
 h1, h2, h3, h4, h5, h6, span {
 text-shadow: 1px 1px 3px rgba(51, 27, 111, 0.601);
@@ -107,6 +115,10 @@ text-shadow: 1px 1px 3px rgba(51, 27, 111, 0.601);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
 
+// Annexe elementor acceuil
+.elementor-shape.elementor-shape-bottom {
+  display:none !important;
+}
 
 // PAGE PROJETS
 
@@ -136,18 +148,18 @@ margin-left: auto;
 }
 
 .right img:hover {
-box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
   transform: scale(1.01) rotateZ(-0.4deg);
 }
 .left img:hover {
-box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
   transform: scale(1.01) rotateZ(0.4deg);
 }
 
-    .project.visible {
+.project.visible {
   opacity: 1 !important;
   transform: translateX(0) !important;
-  }
+}
 
 .project-listing {
   display: flex;
@@ -262,9 +274,13 @@ box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
 }
 
 
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
+
 .project-listing {
-  width:100%;
+  display:flex;
+  align-items: center;
+  flex-direction: center;
+  width:95%;
   gap: 4rem;
 }
 .project-content {
@@ -273,24 +289,73 @@ box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
       }
       .btn {
         padding: 1.5rem 3rem !important;
-        font-size: 1.2rem !important;
+        font-size: 1.4rem !important;
       }
-      .contact-btn {
-        padding: 2rem 4rem !important;
-        font-size: 1.5rem !important;
+      .title-projects {
+      font-size: 2rem;
+      margin-bottom: 0rem;
       }
     }
-
+.contact-btn {
+  padding: 1.7rem 7rem !important;
+  font-size: 1.8rem !important;
+}
+.page-projets h1 {
+    font-size: 3rem !important;
+}
 }
 
-@media (max-width: 768px) {
-  textarea.wpcf7-form-control.form-control {
-    height: 25vh !important;
+@media (max-width: 1000px) {
+  .project {
+    flex-direction: column !important;
+    gap: 1rem !important;
+  }
+  .project-content {
+    justify-content: center !important;
+    align-items: center !important;
+    p {
+    margin-bottom: 0.8rem !important;
+    text-align: center;
+    font-size: 1.4rem !important;
+
+  }
+  .title-projects {
+    text-align: center;
+  }
+  .btn {
+    margin:auto;
+  }
+  }
+
+  .project-image a {
+    display:flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+
+    img {
+      width: 50% !important;
+    }
   }
 }
 
-
+@media (max-width: 800px) {
+.project-listing {
+  padding: 0rem;
+}
+.project {
+  padding: 2rem 0rem;
+}
+}
 // ARTICLES PROJETS
+
+.single-project {
+opacity: 0 !important;
+transition: opacity 1.8s ease;
+}
+
+.single-project.visible {
+  opacity: 1!important;
+}
 
 .single-project .container {
   margin: 0 auto;
@@ -316,12 +381,6 @@ box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
   padding: 1rem;
 }
 
-.intro-container .texte-intro {
-  flex: 1 1 55%;
-  font-size: 1.1rem;
-  font-style: italic;
-}
-
 .intro-container .image-intro {
   flex: 1 1 25%;
   text-align: right;
@@ -335,24 +394,35 @@ box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
 }
 
 @media (max-width: 768px) {
+
+  .single-project h1 {
+  text-align: center;
+  margin: 1rem 0;
+  }
   .intro-container {
     flex-direction: column-reverse;
     text-align: center;
-  }
+    margin-bottom: 0;
+    gap: 0.8rem;
 
-  .intro-container .texte-intro,
-  .intro-container .image-intro {
+  }
+  .intro-container .texte-intro {
     flex: 1 1 100%;
+    padding: 1rem;
   }
-
   .intro-container .image-intro {
-    text-align: center;
+  display:flex;
+  justify-content: center;
+  }
+  .intro-container .image-intro img {
+  max-width: 70%;
   }
 }
 
 
 .texte-intro {
   position: relative;
+  flex: 1 1 55%;
   padding: 2rem;
   background-color: rgba(255, 255, 255, 0.03); /* Optionnel pour démarquer */
   border-radius: 8px;
@@ -410,10 +480,12 @@ box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
   display: inline-block;
   background-image: linear-gradient(180deg, #2d2081ba 0%, #8c57f6 100%);
   color: white;
-  padding: 1rem 3.5rem;
+  padding: 1.4rem 4.2rem;
   border-radius: 10px;
   transition: background 0.3s ease;
   width:fit-content;
+  font-size: 1.3rem;
+
 
   &:hover {
     background-image: linear-gradient(180deg, #3f3374 0%, #5c50d6 100%);
@@ -432,10 +504,6 @@ box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
     transform: scale(1.035);
   }
 }
-
-
-
-
 
 
 // PAGE DE CONTACT

@@ -1,7 +1,12 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const page = document.querySelector(".page-projets");
-  if (page) {
-    page.classList.add("visible");
+  const pageProject = document.querySelector(".page-projets");
+  if (pageProject) {
+    pageProject.classList.add("visible");
+  }
+
+  const singleProject = document.querySelector(".single-project");
+  if (singleProject) {
+    singleProject.classList.add("visible");
   }
 });
 
