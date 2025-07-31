@@ -1,6 +1,77 @@
 @charset "UTF-8";
+/* Déformation des blobs */
+@keyframes morph {
+  0% {
+    border-radius: 40% 60% 50% 70%/60% 50% 70% 40%;
+  }
+  100% {
+    border-radius: 60% 40% 60% 50%/50% 60% 40% 60%;
+  }
+}
+/* Mouvement libre des blobs */
+@keyframes wander {
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(15vw, -10vh);
+  }
+  50% {
+    transform: translate(-10vw, 10vh);
+  }
+  75% {
+    transform: translate(5vw, -15vh);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+/* Animation flottante pour certains éléments décoratifs */
+@keyframes floaty {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+/* Animation pulsation (boutons) */
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.035);
+  }
+}
+/* --- Classes associées --- */
+/* Blobs animés en fond */
+.blob {
+  position: absolute;
+  border-radius: 40% 60% 50% 70%/60% 50% 70% 40%;
+  opacity: 0.1;
+  animation: morph 8s ease-in-out infinite alternate, wander 60s ease-in-out infinite;
+}
+
+/* Élément flottant */
+.floating {
+  animation: floaty 4s ease-in-out infinite;
+}
+
+/* Pulsation pour CTA */
+.pulse {
+  animation: pulse 2s infinite;
+}
+
 body {
   background: linear-gradient(135deg, #E8E6FE, rgba(173, 167, 245, 0.568627451), #E8E6FE) !important;
+}
+
+h1, h2, h3, h4, h5, h6, span {
+  text-shadow: 1px 1px 3px rgba(51, 27, 111, 0.601);
 }
 
 .site-content,
@@ -21,14 +92,6 @@ body {
   overflow: hidden;
 }
 
-.blob {
-  position: absolute;
-  border-radius: 40% 60% 50% 70%/60% 50% 70% 40%;
-  opacity: 0.1;
-  animation: morph 8s ease-in-out infinite alternate, wander 60s ease-in-out infinite;
-}
-
-/* Blobs avec gradient */
 .blob1 {
   top: 5%;
   left: 10%;
@@ -56,33 +119,6 @@ body {
   background: #7616d6;
 }
 
-/* Déformation */
-@keyframes morph {
-  0% {
-    border-radius: 40% 60% 50% 70%/60% 50% 70% 40%;
-  }
-  100% {
-    border-radius: 60% 40% 60% 50%/50% 60% 40% 60%;
-  }
-}
-/* Mouvement libre */
-@keyframes wander {
-  0% {
-    transform: translate(0, 0);
-  }
-  25% {
-    transform: translate(15vw, -10vh);
-  }
-  50% {
-    transform: translate(-10vw, 10vh);
-  }
-  75% {
-    transform: translate(5vw, -15vh);
-  }
-  100% {
-    transform: translate(0, 0);
-  }
-}
 .ast-primary-header-bar {
   background-image: linear-gradient(180deg, rgba(130, 105, 245, 0.3725490196) 0%, rgba(91, 80, 214, 0.568627451) 100%) !important;
 }
@@ -93,31 +129,19 @@ body {
   align-items: center !important;
 }
 
-h1, h2, h3, h4, h5, h6, span {
-  text-shadow: 1px 1px 3px rgba(51, 27, 111, 0.601);
-}
-
-.carte-a-propos, .carte-projet {
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
-}
-
-.carte-a-propos {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border-radius: 12px;
-}
-
-.carte-a-propos:hover {
-  transform: scale(1.03) rotateZ(0.5deg);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-}
-
+.carte-a-propos,
+.carte-projet,
+.carte-seo,
 .container-competences {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
   border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.carte-projet:hover {
-  transform: scale(1.06) rotateZ(-0.9deg);
+.carte-a-propos:hover,
+.carte-projet:hover,
+.carte-seo:hover {
+  transform: scale(1.03) rotateZ(0.5deg);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
 
@@ -149,13 +173,16 @@ h1, h2, h3, h4, h5, h6, span {
   margin-left: auto;
 }
 
-.right img:hover {
+.project img:hover {
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+  transform: scale(1.01);
+}
+
+.right img:hover {
   transform: scale(1.01) rotateZ(-0.4deg);
 }
 
 .left img:hover {
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
   transform: scale(1.01) rotateZ(0.4deg);
 }
 
@@ -295,7 +322,7 @@ h1, h2, h3, h4, h5, h6, span {
     margin-bottom: 0rem;
   }
   .contact-btn {
-    padding: 1.7rem 7rem !important;
+    padding: 1.6rem 4.8rem !important;
     font-size: 1.8rem !important;
   }
   .page-projets h1 {
@@ -358,11 +385,6 @@ h1, h2, h3, h4, h5, h6, span {
   margin: 2rem 0;
 }
 
-.single-project .content {
-  width: 70%;
-  margin: auto;
-}
-
 .intro-container {
   display: flex;
   flex-wrap: wrap;
@@ -370,6 +392,41 @@ h1, h2, h3, h4, h5, h6, span {
   gap: 2rem;
   margin-bottom: 2rem;
   padding: 1rem;
+}
+
+.texte-intro {
+  position: relative;
+  flex: 1 1 55%;
+  padding: 2rem;
+  background-color: rgba(255, 255, 255, 0.03);
+  border-radius: 8px;
+  font-style: italic;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  overflow: hidden;
+}
+
+.texte-intro::before,
+.texte-intro::after {
+  content: "";
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  border: 3px solid #8e5dff;
+}
+
+.texte-intro::before {
+  top: 0;
+  left: 0;
+  border-right: none;
+  border-bottom: none;
+}
+
+.texte-intro::after {
+  bottom: 0;
+  right: 0;
+  border-left: none;
+  border-top: none;
 }
 
 .intro-container .image-intro {
@@ -384,6 +441,46 @@ h1, h2, h3, h4, h5, h6, span {
   box-shadow: 0 0 12px rgba(0, 0, 0, 0.15);
 }
 
+.single-project .content {
+  width: 70%;
+  margin: auto;
+}
+
+.content h3 {
+  margin-bottom: 1rem !important;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: center;
+  margin: 0 0 4rem 0;
+}
+
+.contact-btn {
+  transition: transform 0.7s ease !important;
+  display: inline-block;
+  background-image: linear-gradient(180deg, rgba(45, 32, 129, 0.7294117647) 0%, #8c57f6 100%);
+  color: white;
+  padding: 1.4rem 4.2rem;
+  border-radius: 10px;
+  transition: background 0.3s ease;
+  width: -moz-fit-content;
+  width: fit-content;
+  font-size: 1.3rem;
+  text-align: center;
+}
+.contact-btn:hover {
+  background-image: linear-gradient(180deg, #3f3374 0%, #5c50d6 100%);
+  transform: scale(1.04);
+  color: white;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@media (max-width: 1200px) {
+  .intro-container .texte-intro, .content p, .content li {
+    font-size: 1.3rem !important;
+  }
+}
 @media (max-width: 768px) {
   .single-project h1 {
     text-align: center;
@@ -406,93 +503,10 @@ h1, h2, h3, h4, h5, h6, span {
   .intro-container .image-intro img {
     max-width: 70%;
   }
-}
-.texte-intro {
-  position: relative;
-  flex: 1 1 55%;
-  padding: 2rem;
-  background-color: rgba(255, 255, 255, 0.03); /* Optionnel pour démarquer */
-  border-radius: 8px;
-  font-style: italic;
-  font-size: 1.1rem;
-  line-height: 1.6;
-  overflow: hidden;
-}
-
-.texte-intro::before,
-.texte-intro::after {
-  content: "";
-  position: absolute;
-  width: 25px;
-  height: 25px;
-  border: 3px solid #8e5dff; /* Violet ou autre */
-}
-
-.texte-intro::before {
-  top: 0;
-  left: 0;
-  border-right: none;
-  border-bottom: none;
-}
-
-.texte-intro::after {
-  bottom: 0;
-  right: 0;
-  border-left: none;
-  border-top: none;
-}
-
-.floating {
-  animation: floaty 3s ease-in-out infinite;
-  display: inline-block;
-  will-change: transform;
-}
-
-@keyframes floaty {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-6px);
-  }
-  100% {
-    transform: translateY(0);
+  .single-project .content {
+    width: 90%;
   }
 }
-.btn-container {
-  display: flex;
-  justify-content: center;
-  margin: 0 0 4rem 0;
-}
-
-.contact-btn {
-  transition: transform 0.7s ease !important;
-  display: inline-block;
-  background-image: linear-gradient(180deg, rgba(45, 32, 129, 0.7294117647) 0%, #8c57f6 100%);
-  color: white;
-  padding: 1.4rem 4.2rem;
-  border-radius: 10px;
-  transition: background 0.3s ease;
-  width: -moz-fit-content;
-  width: fit-content;
-  font-size: 1.3rem;
-}
-.contact-btn:hover {
-  background-image: linear-gradient(180deg, #3f3374 0%, #5c50d6 100%);
-  transform: scale(1.04);
-  color: white;
-  animation: pulse 2s ease-in-out infinite;
-}
-
-@keyframes pulse {
-  0%, 100% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.035);
-  }
-}
-/* Champs input et textarea */
 .form-control {
   width: 100% !important;
   padding: 0.9rem 1.2rem !important;
@@ -515,7 +529,6 @@ textarea.wpcf7-form-control.form-control {
   overflow-y: auto !important;
 }
 
-/* Bouton de soumission */
 .contact-submit {
   padding: 1.4rem 5rem !important;
   border: none !important;

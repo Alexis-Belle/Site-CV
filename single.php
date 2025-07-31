@@ -27,6 +27,9 @@ get_header();
     endif;
     ?>
   </section>
+    <div class="btn-container">
+      <a href="/projets" class="contact-btn">Retour aux projets</a>
+    </div>
 </main>
 
 <?php get_footer(); ?>

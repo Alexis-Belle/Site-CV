@@ -22,15 +22,11 @@ get_header(); ?>
       $toneClass = 'bg-tone-' . (($i - 1) % 5 + 1); // boucle entre 1 et 5
     ?>
     <article class="project <?php echo ($i % 2 == 0) ? 'right' : 'left'; ?> <?php echo $toneClass; ?>">
-        <div class="project-image">
+          <div class="project-image floating">
             <a href="<?php the_permalink(); ?>">
-              <div class="project-image floating">
-                <a href="<?php the_permalink(); ?>">
-                  <?php the_post_thumbnail('large'); ?>
-                </a>
-              </div>
+              <?php the_post_thumbnail('large'); ?>
             </a>
-        </div>
+          </div>
         <div class="project-content">
            <a href="<?php the_permalink(); ?>"> <h2 class="title-projects"><?php the_title(); ?></h2> </a>
             <p><?php the_excerpt(); ?></p>

@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add("visible");
-          observer.unobserve(entry.target); // Empêche de rejouer l'animation
+          observer.unobserve(entry.target);
         }
       });
     }, { threshold: 0.2 });
