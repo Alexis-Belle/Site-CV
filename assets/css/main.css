@@ -129,6 +129,20 @@ h1, h2, h3, h4, h5, h6, span {
   align-items: center !important;
 }
 
+.btn-devis {
+  font-size: 1.4rem !important;
+  background-image: linear-gradient(180deg, rgba(48, 44, 123, 0.7058823529) 0%, rgba(138, 80, 214, 0.737254902) 100%) !important;
+  border-radius: 15px !important;
+}
+
+.btn-devis:hover {
+  background-image: linear-gradient(180deg, rgba(27, 19, 135, 0.567) 0%, rgba(126, 57, 217, 0.737254902) 100%) !important;
+}
+.btn-devis:hover a {
+  color: #ffffff !important;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.8);
+}
+
 .carte-a-propos,
 .carte-projet,
 .carte-seo,
