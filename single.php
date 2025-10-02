@@ -12,7 +12,7 @@ get_header();
 
 		<section class="intro-container">
             <div class="texte-intro">
-              	<p><em><?php echo get_post_meta(get_the_ID(), 'intro_article', true); ?></em></p>
+              	<p><em><?php echo the_excerpt(get_the_ID(), 'intro_article', true); ?></em></p>
             </div>
             <div class="image-intro">
 				<?php the_post_thumbnail('medium', ['class' => 'floating']); ?>
