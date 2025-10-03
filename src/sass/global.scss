@@ -178,10 +178,6 @@ align-items:center !important;
   justify-content: flex-end;
 }
 
-.project.right .btn {
-  margin-left: auto;
-}
-
 // Hover sur images
 .project img:hover {
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
@@ -240,7 +236,7 @@ align-items:center !important;
       flex: 1;
       .title-projects {
         font-size: 2rem;
-        margin-bottom: 0rem;
+        margin-bottom: 1rem;
       }
 
       .btn {
@@ -339,15 +335,16 @@ align-items:center !important;
   margin: 2em 0 0 0;
   display:flex;
   flex-wrap: nowrap;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 .project.right .container-buttons-project {
   flex-direction: row-reverse;
+  justify-content: space-around;
 }
 
 .github-btn{
-    transition: transform .7s ease !important;
+    transition: transform .5s ease !important;
     display: inline-block;
     background-image: linear-gradient(180deg,rgba(63,51,116,.7294117647) 0%,#8b0ebda8 100%);
     color: #fff;
@@ -359,7 +356,7 @@ align-items:center !important;
 }
 
 .github-btn:hover{
-  transform:translateY(-1px);
+  transform:translateY(-4px);
   color: #fff;  
 }
 
@@ -601,13 +598,41 @@ align-items:center !important;
   }
 }
 
+.single.project-tags {
+  width: 100%;
+  justify-content: flex-end;
+}
+
+.single.project-tags li {
+  font-size: 1rem !important;
+}
+
+.single.contact-btn, .single.github-btn {
+  width: 20rem !important;
+  text-align: center;
+  padding: 1.3rem 1rem !important;
+  font-size: 1.3rem;
+}
+
+.single.container-buttons-project {
+  margin: 0 0 5em 0 !important;
+}
+
 @media (max-width: 1200px) {
   .intro-container .texte-intro, .content p, .content li {
     font-size: 1.3rem !important;
   }
+  .single.contact-btn, .single.github-btn  {
+  padding: 1.4rem 1rem !important;
+  font-size: 1.5rem !important;
+}
 }
 
 @media (max-width: 768px) {
+  .single-project .container{
+    padding: 2rem 0 3rem;
+  }
+
   .single-project h1 {
     text-align: center;
     margin: 1rem 0;
@@ -620,7 +645,11 @@ align-items:center !important;
   }
   .intro-container .texte-intro {
     flex: 1 1 100%;
-    padding: 1rem;
+    padding: 0.5rem;
+  }
+  .single.project-tags  {
+    justify-content: center;
+    margin-bottom: 2em;
   }
   .intro-container .image-intro {
     display:flex;
@@ -632,6 +661,13 @@ align-items:center !important;
   .single-project .content {
   width:90%;
 }
+.single.container-buttons-project {
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem !important;
+}
+
 }
 
 // PAGE DE CONTACT

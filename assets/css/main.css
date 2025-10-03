@@ -183,10 +183,6 @@ h1, h2, h3, h4, h5, h6, span {
   justify-content: flex-end;
 }
 
-.project.right .btn {
-  margin-left: auto;
-}
-
 .project img:hover {
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
   transform: scale(1.01);
@@ -245,7 +241,7 @@ h1, h2, h3, h4, h5, h6, span {
 }
 .project-listing .project .project-content .title-projects {
   font-size: 2rem;
-  margin-bottom: 0rem;
+  margin-bottom: 1rem;
 }
 .project-listing .project .project-content .btn {
   transition: transform 0.7s ease !important;
@@ -341,15 +337,16 @@ h1, h2, h3, h4, h5, h6, span {
   margin: 2em 0 0 0;
   display: flex;
   flex-wrap: nowrap;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 .project.right .container-buttons-project {
   flex-direction: row-reverse;
+  justify-content: space-around;
 }
 
 .github-btn {
-  transition: transform 0.7s ease !important;
+  transition: transform 0.5s ease !important;
   display: inline-block;
   background-image: linear-gradient(180deg, rgba(63, 51, 116, 0.7294117647) 0%, rgba(139, 14, 189, 0.6588235294) 100%);
   color: #fff;
@@ -361,7 +358,7 @@ h1, h2, h3, h4, h5, h6, span {
 }
 
 .github-btn:hover {
-  transform: translateY(-1px);
+  transform: translateY(-4px);
   color: #fff;
 }
 
@@ -599,12 +596,39 @@ h1, h2, h3, h4, h5, h6, span {
   animation: pulse 2s ease-in-out infinite;
 }
 
+.single.project-tags {
+  width: 100%;
+  justify-content: flex-end;
+}
+
+.single.project-tags li {
+  font-size: 1rem !important;
+}
+
+.single.contact-btn, .single.github-btn {
+  width: 20rem !important;
+  text-align: center;
+  padding: 1.3rem 1rem !important;
+  font-size: 1.3rem;
+}
+
+.single.container-buttons-project {
+  margin: 0 0 5em 0 !important;
+}
+
 @media (max-width: 1200px) {
   .intro-container .texte-intro, .content p, .content li {
     font-size: 1.3rem !important;
   }
+  .single.contact-btn, .single.github-btn {
+    padding: 1.4rem 1rem !important;
+    font-size: 1.5rem !important;
+  }
 }
 @media (max-width: 768px) {
+  .single-project .container {
+    padding: 2rem 0 3rem;
+  }
   .single-project h1 {
     text-align: center;
     margin: 1rem 0;
@@ -617,7 +641,11 @@ h1, h2, h3, h4, h5, h6, span {
   }
   .intro-container .texte-intro {
     flex: 1 1 100%;
-    padding: 1rem;
+    padding: 0.5rem;
+  }
+  .single.project-tags {
+    justify-content: center;
+    margin-bottom: 2em;
   }
   .intro-container .image-intro {
     display: flex;
@@ -628,6 +656,12 @@ h1, h2, h3, h4, h5, h6, span {
   }
   .single-project .content {
     width: 90%;
+  }
+  .single.container-buttons-project {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem !important;
   }
 }
 .form-control {
